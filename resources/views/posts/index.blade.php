@@ -4,7 +4,8 @@
 
 @section('content')
 
-    @if($posts)
+    @if(!$posts->isEmpty())
+
 
     <main role="main" class="container">
 
@@ -48,20 +49,19 @@
 
     @else
 
+
         <div class="container">
 
         <div class="row">
             <div class="col-sm-8 blog-main">
 
-            <h1>Articles :</h1>
+            <h2>Articles :</h2>
             <p>Il n'y a pas d'article pour l'instant mais vous pouvez en ajouter à tout moment après vous être inscrit.</p>
 
             </div>
         </div>
 
         </div>
-
-        <hr>
 
 @endif
 @endsection

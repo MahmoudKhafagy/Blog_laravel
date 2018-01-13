@@ -1,3 +1,5 @@
+<hr>
+
 
 <footer style="text-align: center">
     <p>Projet Laravel &copy;2017</p>

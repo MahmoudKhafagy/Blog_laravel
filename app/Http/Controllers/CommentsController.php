@@ -10,6 +10,10 @@ use App\Comment;
 class CommentsController extends Controller
 {
 
+    /**
+     * @param Post $post
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Post $post){
 
         $this->validate(request(),['body' => 'required|min:2']);

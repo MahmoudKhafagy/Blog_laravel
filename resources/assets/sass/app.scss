@@ -22,6 +22,7 @@
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
+  padding-bottom: 20px;
 }
 
 h1,
@@ -166,4 +167,9 @@ h6,
 }
 .blog-footer p:last-child {
   margin-bottom: 0;
+}
+
+
+.navbar {
+  margin-bottom: 20px;
 }

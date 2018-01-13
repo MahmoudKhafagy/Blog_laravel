@@ -38,7 +38,7 @@
 
 
 
-
+        @if(auth()->id())
                 <form method="POST" action="{{ $post->id }}">
                     {{ csrf_field() }}
                     <div class="form-group">
@@ -57,9 +57,11 @@
 
             </div><!-- /.blog-main -->
 
+    @else
 
+        <p>Vous devez être connecté pour pouvoir poster un commentaire.</p>
 
-
+    @endif
 
 
 
