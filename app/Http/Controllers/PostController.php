@@ -15,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+
+        $posts = Post::latest()->get();
 
         return view('posts.index', compact('posts'));
     }
@@ -48,10 +49,18 @@ class PostController extends Controller
 
     public function store()
     {
-        Post::create(request([
-            'title',
-            'body'
-        ]));
+
+        $this->validate(request(),[
+            'title' => 'required',
+            'body'  => 'required'
+        ]);
+
+
+        Post::create([
+            'title'    => request('title'),
+            'body'     => request('body'),
+            'user_id'  => auth()->id(),
+        ]);
 
         return redirect('/');
     }

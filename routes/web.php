@@ -26,7 +26,12 @@ Route::resource('/', 'PostController');
 Route::get('/{post}', 'PostController@show');
 
 Route::post('/create', 'PostController@store');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//
+//<<<<<<< HEAD
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');
+//=======
+//
+//Route::post('/{post}', 'CommentsController@store');
+//>>>>>>> 7597e12f20677c361575ddae7e9b3fb2bc83a2a6

@@ -10,56 +10,62 @@
 
                     <div class="blog-post">
                         <h1 class="blog-post-title">{{ $post->title }}</h1>
-                        <p class="blog-post-meta">{{ $post->created_at }} by <a href="#"></a></p>
+                        <p class="blog-post-meta">{{ $post->created_at->format('d M Y') }} par {{ $post->user->name }} <a href="#"></a></p>
                         <p>{{ $post->body }}</p>
                         <hr>
 
+
+                        <div>
+                            <h2>Commentaires: </h2>
+                        <ul class="list-group">
+                        @foreach($post->comments as $comment)
+                            <li class="list-group-item">
+
+                            <strong>
+                                <p class="blog-post-meta">{{ $comment->created_at->diffForHumans()}} par {{ $comment->user->name }}: &nbsp;</p>
+                            </strong>
+                            {{ $comment->body }}
+
+                            </li><br>
+
+                        @endforeach
+                        </ul>
+                        </div>
+
+
                     </div><!-- /.blog-post -->
 
-                <h1>Commentaires</h1>
-                <form>
+
+
+
+        @if(auth()->id())
+                <form method="POST" action="{{ $post->id }}">
+                    {{ csrf_field() }}
                     <div class="form-group">
-                        <textarea name="text" id="" cols="85" rows="3"></textarea>
+                        <textarea name="body" placeholder=" Écrire un commentaire" cols="95" rows="3"></textarea>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
+
+
+                    <button type="submit" class="btn btn-primary">Publier</button>
+
                 </form>
+                <br>
+                @include('posts.partials.errors')
+
+
+
 
             </div><!-- /.blog-main -->
 
+    @else
+
+        <p>Vous devez être connecté pour pouvoir poster un commentaire.</p>
+
+    @endif
 
 
 
 
-
-
-
-
-
-            <aside class="col-sm-3 ml-sm-auto blog-sidebar">
-
-
-                <div class="sidebar-module">
-                    <h4>Anciens articles</h4>
-                    <ol class="list-unstyled">
-                        <li><a href="#">March 2014</a></li>
-                        <li><a href="#">February 2014</a></li>
-                        <li><a href="#">January 2014</a></li>
-                        <li><a href="#">December 2013</a></li>
-                        <li><a href="#">November 2013</a></li>
-                        <li><a href="#">October 2013</a></li>
-                        <li><a href="#">September 2013</a></li>
-                        <li><a href="#">August 2013</a></li>
-                        <li><a href="#">July 2013</a></li>
-                        <li><a href="#">June 2013</a></li>
-                        <li><a href="#">May 2013</a></li>
-                        <li><a href="#">April 2013</a></li>
-                    </ol>
-                </div>
-
-
-
-            </aside><!-- /.blog-sidebar -->
 
         </div><!-- /.row -->
 
