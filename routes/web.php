@@ -26,3 +26,7 @@ Route::resource('/', 'PostController');
 Route::get('/{post}', 'PostController@show');
 
 Route::post('/create', 'PostController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
