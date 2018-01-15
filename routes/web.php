@@ -33,7 +33,6 @@ Route::post('/like','PostController@postLikePost')->name('like');
 Route::post('/create', 'PostController@store');
 
 
+
 Route::post('/{post}', 'CommentsController@store');
-
-
 
