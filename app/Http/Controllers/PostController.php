@@ -64,4 +64,13 @@ class PostController extends Controller
 
         return redirect('/');
     }
+    public function edit($id)
+    {
+        //
+    }
+
+    public function destroy($id)
+    {
+        // b
+    }
 }
