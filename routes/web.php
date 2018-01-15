@@ -12,7 +12,8 @@
 */
 
 
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
@@ -25,7 +26,14 @@ Route::resource('/', 'PostController');
 
 Route::get('/{post}', 'PostController@show');
 
+Route::post('/like','PostController@postLikePost')->name('like');
+
+
+
 Route::post('/create', 'PostController@store');
 
 
 Route::post('/{post}', 'CommentsController@store');
+
+
+

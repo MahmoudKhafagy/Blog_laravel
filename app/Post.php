@@ -8,6 +8,16 @@ class Post extends Model
 {
     protected $fillable = ['title', 'body', 'iscompleted', 'user_id'];
 
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
+    public function likes(){
+        return $this->belongsTo('App\Like');
+
+    }
+
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -20,10 +30,5 @@ class Post extends Model
         $this->comments()->create(compact('body','user_id'));
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
+
 }

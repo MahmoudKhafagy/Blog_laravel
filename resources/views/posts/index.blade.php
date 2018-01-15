@@ -37,6 +37,7 @@
                         <li><a href="{{ $post->id }}">{{ $post->title }}</a></li>
 
                     </ol>
+
                 @endforeach
                 </div>
 
