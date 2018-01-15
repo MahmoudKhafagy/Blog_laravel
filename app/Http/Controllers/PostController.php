@@ -67,7 +67,6 @@ class PostController extends Controller
         return redirect('/');
     }
 
-
     /**
      * @param Request $request
      * @return null
@@ -105,6 +104,14 @@ class PostController extends Controller
     }
 
 
+    public function edit($id)
+    {
+        //
+    }
 
+    public function destroy($id)
+    {
+        // b
+    }
 
 }

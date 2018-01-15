@@ -20,8 +20,6 @@
 
 
 <div id="app">
-
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <div class="navbar-header">
@@ -90,18 +88,8 @@
 
 
     @yield('content')
-
-
-
-
 </div>
-
-
-
 
 
 @include('layouts.footer')
 
-
-</body>
-</html>
