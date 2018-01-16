@@ -23,7 +23,9 @@
                         <p>{{ $post->body }}</p>
                     <hr>
 
-
+                        <span class="glyphicon glyphicon-thumbs-up"></span> {{ $likecount->where('post_id', '=', $post->id)->where('like', '==', 1)->count() }} |
+                        <span class="glyphicon glyphicon-thumbs-down"></span> {{ $likecount->where('post_id', '=', $post->id)->where('like', '==', 0)->count() }}
+                        <p style="float: right">commentaire: {{ $commentcount->where('post_id', '=', $post->id)->count() }}</p>
 
 
     </div><!-- /.blog-post -->

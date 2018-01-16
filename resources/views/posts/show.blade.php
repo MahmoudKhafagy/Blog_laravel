@@ -14,7 +14,10 @@
                         <p>{{ $post->body }}</p>
                         <hr>
 
+                        <span class="glyphicon glyphicon-thumbs-up"></span> {{ $like->where('post_id', '=', $post->id)->where('like', '==', 1)->count() }} |
+                        <span class="glyphicon glyphicon-thumbs-down"></span> {{ $like->where('post_id', '=', $post->id)->where('like', '==', 0)->count() }}
 
+                        <br>
                         <br>
                         @if(auth()->id())
                         <div>
@@ -78,7 +81,7 @@
             @if($post->like->isEmpty())
             @else
                     <div class="cold-sm-8">
-                        <h5>Likes et Dislikes: {{ $like->where('post_id', '=', $post->id)->count() }}</h5>
+                        <h5>Likes et Dislikes:</h5>
                         <br>
 
             @foreach($post->like as $likes)

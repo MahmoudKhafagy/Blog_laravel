@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Comment;
 use App\Http\Requests\PostRequest;
 use App\Post;
 use App\Like;
@@ -20,8 +21,9 @@ class PostController extends Controller
     {
 
         $posts = Post::latest()->get();
-
-        return view('posts.index', compact('posts'));
+        $likecount = Like::get();
+        $commentcount = Comment::get();
+        return view('posts.index', compact('posts', 'likecount','commentcount'));
     }
 
 
