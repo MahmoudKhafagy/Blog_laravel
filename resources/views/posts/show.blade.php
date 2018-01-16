@@ -18,8 +18,8 @@
                         <br>
                         @if(auth()->id())
                         <div>
-                            <a href="#" class="btn btn-xs btn-info like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'Vous aimez cet article' : 'Like' : 'Like'  }}</a> |
-                            <a href="#" class="btn btn-xs btn-danger like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'Vous n\'aimez pas cet article' : 'Dislike' : 'Dislike'  }}</a>
+                            <button href="#" onclick="document.location.reload(false)" class="btn btn-xs btn-info like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 1 ? 'Vous aimez cet article' : 'Like' : 'Like'  }}</button> |
+                            <button href="#" onclick="document.location.reload(false)" class="btn btn-xs btn-danger like">{{ Auth::user()->likes()->where('post_id', $post->id)->first() ? Auth::user()->likes()->where('post_id', $post->id)->first()->like == 0 ? 'Vous n\'aimez pas cet article' : 'Dislike' : 'Dislike'  }}</button>
                         </div>
                         @else
 
