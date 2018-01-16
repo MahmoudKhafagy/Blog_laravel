@@ -106,14 +106,15 @@ class PostController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(Post $posts)
     {
-        //
+        return view('posts.edit', compact('posts'));
     }
 
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->back();
     }
 
 }

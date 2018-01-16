@@ -56,10 +56,13 @@
                         <li><a href="{{'/create'}}">Nouvel Article</a></li>
                         <li><a href="{{'/'}}">Articles</a></li>
 
+                        {{--c'est cette page qui faut que tu me change--}}
+                        <li><a href="{{'/'}}">Tout les articles</a></li>
+                        {{--c'est cette page qui faut que tu me change--}}
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu">
