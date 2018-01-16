@@ -56,9 +56,11 @@
                         <li><a href="{{'/create'}}">Nouvel Article</a></li>
                         <li><a href="{{'/'}}">Articles</a></li>
 
-                        {{--faut bloquer cette page en admin rajoute une table 'isadmin' dans user--}}
+                        
+
                         <li><a href="{{'/articles'}}">Admin</a></li>
-                        {{--c'est cette page qui faut que tu me change--}}
+
+
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">

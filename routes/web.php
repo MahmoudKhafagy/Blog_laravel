@@ -20,26 +20,23 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
-
 Route::resource('/', 'PostController');
+
 Route::get('/articles', 'PostController@articles');
+
+Route::get('/{post}', 'PostController@show');
+
 Route::get('/{post}/edit', 'PostController@edit');
 
 
 
-
-
-
-Route::get('/{post}', 'PostController@show');
-
 Route::post('/like','PostController@postLikePost')->name('like');
 
-
+Route::post('/{post}', 'CommentsController@store');
 
 Route::post('/create', 'PostController@store');
 
 
 
-Route::post('/{post}', 'CommentsController@store');
+
 
