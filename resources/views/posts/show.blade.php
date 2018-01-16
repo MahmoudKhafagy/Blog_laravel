@@ -30,16 +30,16 @@
                             <h2>Commentaires: </h2>
                         <ul class="list-group">
                         @foreach($post->comments as $comment)
-                            <li class="list-group-item">
+                                <li class="list-group-item">
 
-                            <strong>
-                                <p class="blog-post-meta">{{ $comment->created_at->diffForHumans()}} par {{ $comment->user->name }}: &nbsp;</p>
-                            </strong>
-                            {{ $comment->body }}
+                                    <strong>
+                                        <p class="blog-post-meta">{{ $comment->created_at->diffForHumans()}} par {{ $comment->user->name }}: &nbsp;</p>
+                                    </strong>
+                                    {{ $comment->body }}
 
-                            </li><br>
+                                </li><br>
 
-                        @endforeach
+                            @endforeach
                         </ul>
                         </div>
 
@@ -78,7 +78,8 @@
             @if($post->like->isEmpty())
             @else
                     <div class="cold-sm-8">
-                    <h5>Likes et Dislikes:</h5> <br>
+                        <h5>Likes et Dislikes: {{ $like->where('post_id', '=', $post->id)->count() }}</h5>
+                        <br>
 
             @foreach($post->like as $likes)
 
