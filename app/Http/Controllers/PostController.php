@@ -20,6 +20,7 @@ class PostController extends Controller
 
         $posts = Post::latest()->get();
 
+
         return view('posts.index', compact('posts'));
     }
 
@@ -32,7 +33,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+        $like = Like::get();
+        return view('posts.show', compact('post', 'like'));
     }
 
     /**

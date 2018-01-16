@@ -14,6 +14,7 @@
             <div class="col-sm-8 blog-main">
 
                 @foreach($posts as $post)
+
                     <div class="blog-post">
                         <a href="{{ $post->id }}"><h1 class="blog-post-title">{{ $post->title }}</h1></a>
 
@@ -22,7 +23,7 @@
                         <p>{{ $post->body }}</p>
                     <hr>
 
-                    </div><!-- /.blog-post -->
+    </div><!-- /.blog-post -->
                 @endforeach
 
 
@@ -39,6 +40,7 @@
                     </ol>
 
                 @endforeach
+
                 </div>
 
 

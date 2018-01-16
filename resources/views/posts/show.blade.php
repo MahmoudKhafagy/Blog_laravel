@@ -15,10 +15,6 @@
                         <hr>
 
 
-
-
-
-
                         <br>
                         @if(auth()->id())
                         <div>
@@ -57,7 +53,7 @@
                 <form method="POST" action="{{ $post->id }}">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <textarea name="body" placeholder=" Écrire un commentaire" cols="95" rows="3"></textarea>
+                        <textarea name="body" placeholder="Écrire un commentaire" cols="78" rows="3"></textarea>
                     </div>
 
 
@@ -75,8 +71,28 @@
     @else
 
         <p>Vous devez être connecté pour pouvoir poster un commentaire.</p>
+                <hr>
 
     @endif
+
+            @if($post->like->isEmpty())
+            @else
+                    <div class="cold-sm-8">
+                    <h5>Likes et Dislikes:</h5> <br>
+
+            @foreach($post->like as $likes)
+
+                @if($likes->like == 1)
+                   <span class="glyphicon glyphicon-thumbs-up"></span> {{ $likes->user->name }} aime cet article!<br>
+                @elseif($likes->like == 0)
+                   <span class="glyphicon glyphicon-thumbs-down"></span> {{ $likes->user->name }} n'aime pas cet article! <br>
+                @endif
+
+            @endforeach
+
+            </div>
+
+            @endif
 
 
 

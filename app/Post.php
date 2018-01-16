@@ -17,6 +17,11 @@ class Post extends Model
 
     }
 
+    public function like(){
+        return $this->hasMany(Like::class);
+    }
+
+
 
 
     /**
