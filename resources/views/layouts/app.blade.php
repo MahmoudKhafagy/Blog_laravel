@@ -57,7 +57,7 @@
                         <li><a href="{{'/'}}">Articles</a></li>
 
                         {{--faut bloquer cette page en admin rajoute une table 'isadmin' dans user--}}
-                        <li><a href="{{'/edit'}}">Admin</a></li>
+                        <li><a href="{{'/articles'}}">Admin</a></li>
                         {{--c'est cette page qui faut que tu me change--}}
 
                         <li class="dropdown">

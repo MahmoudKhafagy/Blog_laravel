@@ -1,8 +1,9 @@
 
 
-<form action="{{ '/' }}" method="POST">
+<form action="{{ $item->exists ? route('update', [$item->id]) : route('store') }}" method="POST">
     {{ csrf_field() }}
 
+    {{ method_field( $item->exists ? 'PUT' : 'POST' ) }}
 
     <div class="form-group">
 

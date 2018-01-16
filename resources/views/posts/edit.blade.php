@@ -9,7 +9,7 @@
             <div class="col-xs-12 panel panel-default">
                 <h2>Editer une tache</h2>
 
-                @include('posts.partials.form', ['item' => $posts])
+                @include('posts.partials.form', ['item' => $post])
             </div>
         </div>
     </div>

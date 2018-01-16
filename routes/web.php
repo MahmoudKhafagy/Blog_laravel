@@ -23,7 +23,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('/', 'PostController');
-Route::get('/edit', 'PostController@edit');
+Route::get('/articles', 'PostController@articles');
+Route::get('/{post}/edit', 'PostController@edit');
+
+
+Route::post('/{post}/update', 'PostController@update');
+
+Route::post('{post}/store','PostController@store');
+
+
+
 
 Route::get('/{post}', 'PostController@show');
 

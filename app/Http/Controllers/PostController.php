@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\PostRequest;
 use App\Post;
 use App\Like;
 use Illuminate\Http\Request;
@@ -105,15 +106,34 @@ class PostController extends Controller
     }
 
 
-    public function edit(Post $posts)
+    public function edit(Post $post)
     {
-        return view('posts.edit', compact('posts'));
+        return view('posts.edit', compact('post'));
     }
+
+    /**
+     * @param PostRequest $request
+     * @param Post $post
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(PostRequest $request, Post $post)
+    {
+
+        $post->update($request->except('_token', '_method'));
+        return redirect()->route('posts.show', [$post->id]);
+    }
+
 
     public function destroy(Post $post)
     {
         $post->delete();
         return redirect()->back();
+    }
+
+    public function articles(){
+        $posts = Post::latest()->get();
+
+        return view('posts.article', compact('posts'));
     }
 
 }
