@@ -125,17 +125,15 @@ class PostController extends Controller
         return redirect()->route('posts.show', [$post->id]);
     }
 
-
-    public function destroy(Post $post)
-    {
-        $post->delete();
-        return redirect()->back();
-    }
-
     public function articles(){
         $posts = Post::latest()->get();
 
         return view('posts.article', compact('posts'));
     }
 
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return redirect()->back();
+    }
 }

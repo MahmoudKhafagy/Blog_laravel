@@ -28,6 +28,7 @@ Route::get('/{post}', 'PostController@show');
 
 Route::get('/{post}/edit', 'PostController@edit');
 
+Route::resource('/posts','PostController');
 
 
 Route::post('/like','PostController@postLikePost')->name('like');
