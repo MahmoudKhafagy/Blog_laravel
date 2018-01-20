@@ -23,18 +23,17 @@
                         <td>{{$post->title}}</td>
                         <td>{{$post->body}}</td>
                         <td>
-                            <a href="{{ route('edit', [$post->id]) }}" class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-trash"></span> Edit
-                            </a>
 
-                            <span>|</span>
                             <a href="{{ $post->id }}" class="btn btn-success btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span> Show
                             </a>
-
-
                             <span>|</span>
 
+
+                            <a href="{{ route('edit', [$post->id]) }}" class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-trash"></span> Edit
+                            </a>
+                            <span>|</span>
                             <a href="" class="btn btn-danger btn-sm"
                                onclick="event.preventDefault();document.getElementById('form-{!! $post->id !!}').submit();">
                                 <span class="glyphicon glyphicon-trash"></span> Delete

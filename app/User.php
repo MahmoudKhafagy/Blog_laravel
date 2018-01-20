@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @property mixed admin
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -27,13 +30,21 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->admin ? true : false; // this looks for an admin column in your users table
+    }
 
-    public function likes(){
+    public function likes()
+    {
         return $this->hasMany('App\Like');
     }
-    public function post(){
+
+    public function post()
+    {
         return $this->hasMany('App\Post');
     }
-
-
 }
