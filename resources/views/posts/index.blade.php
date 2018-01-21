@@ -18,7 +18,7 @@
 
                         <div class="blog-post">
                             <a href="{{ $post->id }}"><h1 class="blog-post-title">{{ $post->title }}</h1></a>
-
+                            <p><img src="upload/{{ $post->url }}" alt="" style="width: 600px; height: 400px"></p>
                             <p class="blog-post-meta">{{ $post->created_at->format('d M Y') }} par {{ $post->user->name }}<a href="#"></a></p>
                             <p>{{ $post->body }}</p>
                             <hr>

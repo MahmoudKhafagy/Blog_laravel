@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
+
 Route::get('/profile', 'UserController@profile');
 Route::post('/profile', 'UserController@update_avatar');
 
@@ -23,8 +24,19 @@ Route::resource('/posts', 'PostController');
 Route::post('/like', 'PostController@postLikePost')->name('like');
 Route::post('/{post}', 'CommentsController@store');
 Route::post('/create', 'PostController@store');
-Route::group(['middleware' => 'Admin'], function () {
-    Route::get('/articles', 'PostController@articles');
-    Route::get('/{post}/edit', 'PostController@edit');
+
+
+
+
+
+Route::group(['middleware' => 'Admin'], function (){
+
+Route::get('/articles', 'PostController@articles');
+
+Route::get('/{post}/edit', 'PostController@edit');
+
+
 });
+
+
 Route::get('/{post}', 'PostController@show');

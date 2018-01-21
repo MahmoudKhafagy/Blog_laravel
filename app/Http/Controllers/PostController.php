@@ -19,7 +19,7 @@ class PostController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->only(['create','edit','store','update','destroy']);
     }
     /**
      * Display a listing of the resource.
@@ -34,6 +34,8 @@ class PostController extends Controller
         $commentcount = Comment::get();
         return view('posts.index', compact('posts', 'likecount','commentcount'));
     }
+
+
 
 
     /**
@@ -62,21 +64,35 @@ class PostController extends Controller
 
 
 
-    public function store()
+    public function store(Request $request)
     {
 
         $this->validate(request(),[
             'title' => 'required',
-            'body'  => 'required'
+            'body'  => 'required',
+            'url'   =>  'image|mimes:jpg,jpeg,gif,png|max:2028',
         ]);
 
 
-        Post::create([
-            'title'    => request('title'),
-            'body'     => request('body'),
-            'user_id'  => auth()->id(),
-        ]);
 
+//        Post::create([
+//            'title'    => request('title'),
+//            'body'     => request('body'),
+//            'user_id'  => auth()->id(),
+//            'url'   =>  request('url'),
+//        ]);
+
+        $img_name = time(). '.' . $request->url->getClientOriginalExtension();
+
+        $post = new Post;
+        $post->title = request('title');
+        $post->body = request('body');
+        $post->user_id = auth()->id();
+        $post->url  =  $img_name;
+
+        $post->save();
+
+        $request->url->move(public_path('upload'),$img_name);
         return redirect('/');
     }
 
@@ -130,7 +146,9 @@ class PostController extends Controller
     public function update(PostRequest $request, Post $post)
     {
 
+        /** @var TYPE_NAME $request */
         $post->update($request->except('_token', '_method'));
+        /** @var TYPE_NAME $post */
         return redirect()->route('posts.show', [$post->id]);
     }
 

@@ -36,7 +36,8 @@
                                 <li class="list-group-item">
 
                                     <strong>
-                                        <p class="blog-post-meta">{{ $comment->created_at->diffForHumans()}} par {{ $comment->user->name }}: &nbsp;</p>
+                                        <p class="blog-post-meta">{{ $comment->created_at->diffForHumans()}} par
+                                            <img src="/uploads/avatars/{{ $comment->user->avatar }}" alt="user pic" class="picuser"> {{ $comment->user->name }}: &nbsp;</p>
                                     </strong>
                                     {{ $comment->body }}
 

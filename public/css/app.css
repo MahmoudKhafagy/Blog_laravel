@@ -8534,3 +8534,9 @@ h6,
   margin-bottom: 20px;
 }
 
+.picuser {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+

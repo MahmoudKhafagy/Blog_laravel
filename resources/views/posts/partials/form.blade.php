@@ -1,6 +1,6 @@
 
 
-<form action="{{ $item->exists ? route('update', [$item->id]) : route('store') }}" method="POST">
+<form action="{{ $item->exists ? route('posts.update', [$item->id]) : route('posts.store') }}" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
 
     {{ method_field( $item->exists ? 'PUT' : 'POST' ) }}
@@ -26,6 +26,11 @@
 
         </select>
 
+    </div>
+
+    <div class="form-group">
+        <label for="url">Image</label>
+        <input type="file" name="url" id="url">
     </div>
 
     <button class="btn btn-primary btn-block">Envoyer</button>
