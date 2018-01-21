@@ -54,11 +54,11 @@
                         <li><a href="{{ route('register') }}">Inscription</a></li>
                     @else
 
-                        @if( Auth::check() && Auth::user()->isAdmin())
-                        @endif
-                        <li><a href="{{'/create'}}">Nouvel Article</a></li>
                         <li><a href="{{'/'}}">Accueil</a></li>
+                        <li><a href="{{'/create'}}">Nouvel Article</a></li>
+                        @if( Auth::check() && Auth::user()->isAdmin())
                         <li><a href="{{'/articles'}}">Admin</a></li>
+                        @endif
                        <li>
                        </li>
 

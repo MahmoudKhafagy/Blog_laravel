@@ -28,8 +28,7 @@
 
     </div>
 
-
-    <button class="btn btn-primary btn-block" type="submit">Envoyer</button>
+    <button class="btn btn-primary btn-block">Envoyer</button>
 
 </form>
 
