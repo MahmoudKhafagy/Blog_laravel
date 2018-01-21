@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +10,6 @@
 |
 */
 
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,21 +19,12 @@ Route::post('/profile', 'UserController@update_avatar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/', 'PostController');
-Route::resource('/posts','PostController');
-Route::post('/like','PostController@postLikePost')->name('like');
+Route::resource('/posts', 'PostController');
+Route::post('/like', 'PostController@postLikePost')->name('like');
 Route::post('/{post}', 'CommentsController@store');
 Route::post('/create', 'PostController@store');
-
-
-
-
-Route::group(['middleware' => 'Admin'], function (){
-
-Route::get('/articles', 'PostController@articles');
-Route::get('/{post}/edit', 'PostController@edit');
-
+Route::group(['middleware' => 'Admin'], function () {
+    Route::get('/articles', 'PostController@articles');
+    Route::get('/{post}/edit', 'PostController@edit');
 });
-
 Route::get('/{post}', 'PostController@show');
-
-

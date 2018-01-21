@@ -20,7 +20,6 @@
                             <a href="{{ $post->id }}"><h1 class="blog-post-title">{{ $post->title }}</h1></a>
 
                             <p class="blog-post-meta">{{ $post->created_at->format('d M Y') }} par {{ $post->user->name }}<a href="#"></a></p>
-
                             <p>{{ $post->body }}</p>
                             <hr>
 
