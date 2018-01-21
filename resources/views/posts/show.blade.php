@@ -12,6 +12,10 @@
                         <h1 class="blog-post-title">{{ $post->title }}</h1>
                         <p class="blog-post-meta">{{ $post->created_at->format('d M Y') }} par {{ $post->user->name }} <a href="#"></a></p>
                         <p>{{ $post->body }}</p>
+                        @if($post->url == 'default.jpg')
+                        @else
+                            <p><img src="upload/{{ $post->url }}" alt="" style="width: 600px; height: 400px"></p>
+                        @endif
                         <hr>
 
                         <span class="glyphicon glyphicon-thumbs-up"></span> {{ $like->where('post_id', '=', $post->id)->where('like', '==', 1)->count() }} |

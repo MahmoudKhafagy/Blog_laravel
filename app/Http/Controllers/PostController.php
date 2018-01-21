@@ -63,14 +63,17 @@ class PostController extends Controller
     }
 
 
-
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(Request $request)
     {
 
         $this->validate(request(),[
             'title' => 'required',
             'body'  => 'required',
-            'url'   =>  'image|mimes:jpg,jpeg,gif,png|max:2028',
+            'url'   =>  'sometimes|image|mimes:jpg,jpeg,gif,png|max:2028',
         ]);
 
 
@@ -82,18 +85,25 @@ class PostController extends Controller
 //            'url'   =>  request('url'),
 //        ]);
 
-        $img_name = time(). '.' . $request->url->getClientOriginalExtension();
 
-        $post = new Post;
-        $post->title = request('title');
-        $post->body = request('body');
-        $post->user_id = auth()->id();
-        $post->url  =  $img_name;
+                $post = new Post;
+                $post->title = request('title');
+                $post->body = request('body');
+                $post->user_id = auth()->id();
+                if(!$request->hasFile('url')){
 
-        $post->save();
+                         $post->save();
 
-        $request->url->move(public_path('upload'),$img_name);
+                }else{
+
+                        $img_name = time(). '.' . $request->url->getClientOriginalExtension();
+                        $post->url  =  $img_name;
+                        $post->save();
+                        $request->url->move(public_path('upload'),$img_name);
+
+    }
         return redirect('/');
+
     }
 
     /**

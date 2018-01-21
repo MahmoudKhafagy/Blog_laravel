@@ -28,6 +28,7 @@ class PostRequest extends FormRequest
             'title'         => 'required',
             'body'          => 'required',
             'iscompleted'   => 'required',
+
         ];
     }
 }

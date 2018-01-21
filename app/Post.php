@@ -10,7 +10,8 @@ class Post extends Model
         'title',
         'body',
         'iscompleted',
-        'user_id'];
+        'user_id',
+    ];
 
     public function user(){
         return $this->belongsTo('App\User');
