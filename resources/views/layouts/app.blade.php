@@ -47,7 +47,7 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right" style="margin: auto; padding-left: 500px;">
+                <ul class="nav navbar-nav navbar-right" style="margin: auto; padding-left: 300px;">
                     <!-- Authentication Links -->
                     @guest
                         <li><a href="{{ route('login') }}">Connexion</a></li>

@@ -19,7 +19,7 @@ class PostController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->only(['create','edit','store','update','destroy']);
     }
     /**
      * Display a listing of the resource.
@@ -34,6 +34,8 @@ class PostController extends Controller
         $commentcount = Comment::get();
         return view('posts.index', compact('posts', 'likecount','commentcount'));
     }
+
+
 
 
     /**
@@ -130,7 +132,9 @@ class PostController extends Controller
     public function update(PostRequest $request, Post $post)
     {
 
+        /** @var TYPE_NAME $request */
         $post->update($request->except('_token', '_method'));
+        /** @var TYPE_NAME $post */
         return redirect()->route('posts.show', [$post->id]);
     }
 

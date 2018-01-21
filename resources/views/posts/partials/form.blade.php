@@ -1,6 +1,6 @@
 
 
-<form action="{{ $item->exists ? route('update', [$item->id]) : route('store') }}" method="POST">
+<form action="{{ $item->exists ? route('posts.update', [$item->id]) : route('posts.store') }}" method="POST">
     {{ csrf_field() }}
 
     {{ method_field( $item->exists ? 'PUT' : 'POST' ) }}
