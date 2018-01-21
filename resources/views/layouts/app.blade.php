@@ -54,31 +54,31 @@
                         <li><a href="{{ route('register') }}">Inscription</a></li>
                     @else
 
-                        @if(Auth::check())
+                        @if( Auth::check() && Auth::user()->isAdmin())
                         @endif
-                        <li><a href="{{'/'}}">Accueil</a></li>
                         <li><a href="{{'/create'}}">Nouvel Article</a></li>
+                        <li><a href="{{'/'}}">Accueil</a></li>
                         <li><a href="{{'/articles'}}">Admin</a></li>
+                       <li>
+                       </li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false" aria-haspopup="true">
+                               aria-expanded="false" aria-haspopup="true" style="position: relative; padding-left: 37%;">
+                                <img src="/uploads/avatars/{{Auth::user()->avatar}}" style="width: 40px; height: 40px; position: absolute; top: 10px; left: 10px; border-radius: 50%">
                                 {{ Auth::user()->name }}
                             </a>
 
                             <ul class="dropdown-menu">
                                 <li>
+                           <a href="{{ '/profile' }}">Profil</a>
                                     <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Déconnexion
-                                    </a>
+                                       onclick="event.preventDefault();document.getElementById('logout-form').submit();">Déconnexion</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                          style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
+                                          style="display: none;">{{ csrf_field() }}</form>
                                 </li>
+
                             </ul>
                         </li>
                     @endguest

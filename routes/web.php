@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
+Route::get('/profile', 'UserController@profile');
+Route::post('/profile', 'UserController@update_avatar');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/', 'PostController');
@@ -25,10 +27,12 @@ Route::post('/{post}', 'CommentsController@store');
 Route::post('/create', 'PostController@store');
 
 
+
+
 Route::group(['middleware' => 'Admin'], function (){
 Route::get('/articles', 'PostController@articles');
-Route::get('/{post}', 'PostController@show');
 Route::get('/{post}/edit', 'PostController@edit');
 });
+Route::get('/{post}', 'PostController@show');
 
 

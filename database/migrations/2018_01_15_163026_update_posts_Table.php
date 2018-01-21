@@ -14,8 +14,8 @@ class UpdatePostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned()->nullable()->after('id');
-            $table->foreign('user_id')->references('id')->on('users');
+//            $table->integer('user_id')->unsigned()->nullable()->after('id');
+//            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -27,8 +27,8 @@ class UpdatePostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-            $table->dropColumn('user_id');
+//            $table->dropForeign(['user_id']);
+//            $table->dropColumn('user_id');
         });
     }
 }
